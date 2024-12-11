@@ -2,22 +2,7 @@
 
 Este projeto contém testes de integração para a API de gerenciamento de produtos, utilizando **Spring Boot** e **JUnit 5**. Os testes são realizados usando o `MockMvc` para simular requisições HTTP e garantir que os endpoints da API funcionem conforme o esperado.
 
-## 📑 Sumário
-
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Requisitos](#-requisitos)
-- [Como Executar os Testes](#-como-executar-os-testes)
-  - [Passo 1: Clonar o Repositório](#-passo-1-clonar-o-repositório)
-  - [Passo 2: Instalar as Dependências](#-passo-2-instalar-as-dependências)
-  - [Passo 3: Executar os Testes](#-passo-3-executar-os-testes)
-- [Endpoints Testados](#-endpoints-testados)
-  - [`POST /api/produtos`](#post-apiprodutos-)
-  - [`GET /api/produtos`](#get-apiprodutos-)
-  - [`GET /api/produtosid`](#get-apiprodutosid-)
-  - [Erro Esperado](#-erro-esperado)
-- [Como Funciona](#-como-funciona)
-- [Dependências](#-dependências)
-- [Licença](#-licença)
+--- 
 
 ## 📂 Estrutura do Projeto
 
@@ -25,6 +10,8 @@ Este projeto contém testes de integração para a API de gerenciamento de produ
   - **POST**: Criação de um novo produto.
   - **GET**: Listagem de produtos e busca por ID.
   - **Erro 404**: Teste para retornar erro quando o produto não for encontrado.
+
+---
 
 ## ⚙️ Requisitos
 
@@ -35,6 +22,8 @@ Certifique-se de ter os seguintes requisitos instalados:
 - **Spring Boot** (já configurado no projeto) 🛠️
 - **JUnit 5** 🧪
 - **MockMvc** 🧑‍💻
+
+---
 
 ## 🏃‍♂️ Como Executar os Testes
 
@@ -78,6 +67,8 @@ mvn test
 
 O Spring Boot iniciará um servidor de testes na porta aleatória, e os testes serão executados. Você verá os resultados diretamente no console.
 
+---
+
 ## 🌐 Endpoints Testados
 
 ### `POST /api/produtos` ➕
@@ -106,9 +97,13 @@ O Spring Boot iniciará um servidor de testes na porta aleatória, e os testes s
 ### ⚠️ Erro Esperado:
 - **404**: Caso o produto não seja encontrado.
 
+---
+
 ## 💡 Como Funciona
 
 O teste de integração cria um produto via requisição POST, em seguida realiza uma requisição GET para garantir que o produto foi adicionado com sucesso. Ele também verifica a resposta de erro quando tenta buscar um produto que não existe.
+
+---
 
 ## 📦 Dependências
 
@@ -118,6 +113,8 @@ Este projeto utiliza as seguintes dependências:
 - `spring-boot-starter-test`: Para testes, incluindo `MockMvc` e `JUnit`.
 - `jackson-databind`: Para conversão entre objetos Java e JSON.
 - `h2`: Banco de dados em memória para testes.
+
+---
 
 ## 📝 Licença
 
