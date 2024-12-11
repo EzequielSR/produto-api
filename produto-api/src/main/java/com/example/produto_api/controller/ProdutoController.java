@@ -20,8 +20,9 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produto criar(@RequestBody Produto produto) {
-        return produtoRepository.save(produto);
+    public ResponseEntity<Produto> criarProduto(@RequestBody Produto produto) {
+        Produto produtoSalvo = produtoRepository.save(produto);
+        return ResponseEntity.ok(produtoSalvo);
     }
 
     @GetMapping("/{id}")

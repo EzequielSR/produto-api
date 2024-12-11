@@ -5,12 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+
 @Entity
 public class Produto {
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,8 +4,10 @@ import com.example.produto_api.model.Produto;
 import com.example.produto_api.repository.ProdutoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +20,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
+@AutoConfigureMockMvc
 @Transactional
+@ActiveProfiles("test")
 public class ProdutoControllerIntegrationTest {
 
     @Autowired
@@ -45,7 +49,7 @@ public class ProdutoControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(produtoJson))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").exists())  // Verifica se o ID foi gerado
+                .andExpect(jsonPath("$.id").isNotEmpty())  // Verifica se o ID foi gerado
                 .andExpect(jsonPath("$.nome").value("Produto Teste"))
                 .andExpect(jsonPath("$.preco").value(99.99));
 
@@ -54,7 +58,8 @@ public class ProdutoControllerIntegrationTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))  // Verifica se existe um produto
-                .andExpect(jsonPath("$[0].nome").value("Produto Teste"));
+                .andExpect(jsonPath("$[0].nome").value("Produto Teste"))
+                .andExpect(jsonPath("$[0].preco").value(99.99));
     }
 
     // Teste para buscar um produto por ID
