@@ -13,7 +13,7 @@ Este projeto contém testes de integração para a API de gerenciamento de produ
 - [Endpoints Testados](#-endpoints-testados)
   - [`POST /api/produtos`](#post-apiprodutos-)
   - [`GET /api/produtos`](#get-apiprodutos-)
-  - [`GET /api/produtos/{id}`](#get-apiprodutosid-)
+  - [`GET /api/produtosid`](#get-apiprodutosid-)
   - [Erro Esperado](#-erro-esperado)
 - [Como Funciona](#-como-funciona)
 - [Dependências](#-dependências)
